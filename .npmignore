@@ -1,0 +1,17 @@
+src/
+playground/
+.storybook/
+.github/
+node_modules/
+*.test.tsx
+*.test.ts
+*.stories.tsx
+*.stories.ts
+.eslintrc.json
+.prettierrc
+tsconfig.json
+tsconfig.build.json
+vite.config.ts
+vitest.config.ts
+storybook-static/
+coverage/
