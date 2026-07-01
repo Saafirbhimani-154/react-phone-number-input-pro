@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Changes for the next release go here -->
 <!-- Format: ### Added / ### Fixed / ### Changed -->
 
+## [1.0.1] - 2026-07-01
+
+### Fixed
+- Fixed corrupted encoding of emojis and special characters in the README for the npm registry page
+- Relaxed CI pipeline strictness and resolved minor internal ESLint warnings
+
 ## [1.0.0] - 2026-06-26
 
 ### Added

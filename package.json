@@ -1,7 +1,7 @@
 {
   "name": "react-phone-number-input-pro",
-  "version": "1.0.0",
-  "description": "A zero-dependency React component for international phone number input with country selection, auto-formatting, and validation for 240+ countries.",
+  "version": "1.0.1",
+  "description": "A highly customizable React component for international phone number input with built-in country detection, strict validation, and zero runtime dependencies.",
   "keywords": [
     "react",
     "phone",
