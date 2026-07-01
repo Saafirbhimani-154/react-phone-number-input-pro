@@ -1,4 +1,4 @@
-﻿# react-phone-number-input-pro
+# react-phone-number-input-pro
 > A zero-dependency React component for international phone number input with country selection, auto-formatting, and validation for 240+ countries.
 
 [![npm version](https://img.shields.io/npm/v/react-phone-number-input-pro.svg)](https://www.npmjs.com/package/react-phone-number-input-pro)
@@ -8,16 +8,16 @@
 
 ## Features
 
-- ðŸŒ **240+ countries** â€” complete dataset with dial codes and crisp SVG flags (via FlagCDN)
-- ðŸ” **Searchable dropdown** â€” filter by country name, code, or dial code
-- âœ… **Per-country validation** â€” custom regex + length rules for every country
-- ðŸŽ­ **Auto-format** â€” masks number as you type (e.g. `98765 43210`)
-- ðŸ“‹ **Paste detection** â€” paste `+919876543210` and it auto-selects country
-- ðŸŒ **Auto-detect country** â€” reads browser locale on mount
-- ðŸŽ¨ **CSS variables theming** â€” full customization, dark mode included
-- ðŸ”Œ **Headless hook** â€” `usePhoneInput()` for custom UI
-- ðŸ“¦ **Zero dependencies** â€” only peer deps: `react >=17`
-- ðŸ’ª **TypeScript** â€” 100% typed, types shipped with package
+- 🌍 **240+ countries** — complete dataset with dial codes and crisp SVG flags (via FlagCDN)
+- 🔍 **Searchable dropdown** — filter by country name, code, or dial code
+- ✅ **Per-country validation** — custom regex + length rules for every country
+- 🎭 **Auto-format** — masks number as you type (e.g. `98765 43210`)
+- 📋 **Paste detection** — paste `+919876543210` and it auto-selects country
+- 🌎 **Auto-detect country** — reads browser locale on mount
+- 🎨 **CSS variables theming** — full customization, dark mode included
+- 🔌 **Headless hook** — `usePhoneInput()` for custom UI
+- 📦 **Zero dependencies** — only peer deps: `react >=17`
+- 💪 **TypeScript** — 100% typed, types shipped with package
 
 ---
 
@@ -55,19 +55,19 @@ function MyForm() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | â€” | Controlled value (full international number) |
-| `onChange` | `(value, meta) => void` | â€” | Called on every change |
+| `value` | `string` | — | Controlled value (full international number) |
+| `onChange` | `(value, meta) => void` | — | Called on every change |
 | `defaultCountry` | `string` | `"auto"` | ISO code or `"auto"` to detect from browser |
 | `placeholder` | `string` | `"Phone number"` | Input placeholder |
 | `disabled` | `boolean` | `false` | Disables the component |
 | `error` | `boolean` | `false` | Forces error state (red border) |
-| `className` | `string` | â€” | Extra class on wrapper |
-| `style` | `CSSProperties` | â€” | Extra inline styles |
-| `name` | `string` | â€” | Input `name` attribute |
-| `id` | `string` | â€” | Input `id` attribute |
-| `required` | `boolean` | â€” | Input `required` attribute |
-| `onBlur` | `() => void` | â€” | Focus out callback |
-| `onFocus` | `() => void` | â€” | Focus in callback |
+| `className` | `string` | — | Extra class on wrapper |
+| `style` | `CSSProperties` | — | Extra inline styles |
+| `name` | `string` | — | Input `name` attribute |
+| `id` | `string` | — | Input `id` attribute |
+| `required` | `boolean` | — | Input `required` attribute |
+| `onBlur` | `() => void` | — | Focus out callback |
+| `onFocus` | `() => void` | — | Focus in callback |
 
 ### `onChange` meta object
 
@@ -182,4 +182,4 @@ Works flawlessly in React 17, 18, and 19.
 
 ## License
 
-MIT Â© saafir-bhimani
+MIT © saafir-bhimani
