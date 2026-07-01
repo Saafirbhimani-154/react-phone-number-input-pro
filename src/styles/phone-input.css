@@ -2,3 +2,409 @@
    All visual properties are controlled via CSS variables.
    Override any variable in :root or a parent selector to theme the component.
    ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── CSS Variables (Theming API) ──────────────────────────────────────────── */
+:root {
+  --rpi-font:                  inherit;
+  --rpi-font-size:             0.9375rem;   /* 15px */
+  --rpi-font-size-sm:          0.8125rem;   /* 13px */
+
+  /* Border & Shape */
+  --rpi-border-color:          #d1d5db;
+  --rpi-border-color-hover:    #9ca3af;
+  --rpi-border-color-focus:    #6366f1;
+  --rpi-border-color-valid:    #22c55e;
+  --rpi-border-color-error:    #ef4444;
+  --rpi-border-width:          1.5px;
+  --rpi-border-radius:         10px;
+  --rpi-border-radius-sm:      6px;
+
+  /* Colors */
+  --rpi-bg:                    #ffffff;
+  --rpi-bg-hover:              #f9fafb;
+  --rpi-bg-dropdown:           #ffffff;
+  --rpi-text:                  #111827;
+  --rpi-text-placeholder:      #9ca3af;
+  --rpi-text-dialcode:         #374151;
+  --rpi-text-muted:            #6b7280;
+  --rpi-text-valid:            #16a34a;
+  --rpi-text-error:            #dc2626;
+  --rpi-item-hover-bg:         #f3f4f6;
+  --rpi-item-selected-bg:      #eef2ff;
+  --rpi-item-selected-color:   #4338ca;
+  --rpi-divider-color:         #e5e7eb;
+
+  /* Sizing */
+  --rpi-height:                46px;
+  --rpi-trigger-width:         96px;
+  --rpi-dropdown-width:        300px;
+  --rpi-dropdown-max-height:   300px;
+
+  /* Shadows */
+  --rpi-shadow-focus:          0 0 0 3px rgba(99, 102, 241, 0.15);
+  --rpi-shadow-dropdown:       0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --rpi-transition:            0.18s ease;
+}
+
+/* ─── Root Container ────────────────────────────────────────────────────────── */
+.rpi-root {
+  font-family: var(--rpi-font);
+  font-size: var(--rpi-font-size);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+/* ─── Input Wrapper ─────────────────────────────────────────────────────────── */
+.rpi-wrapper {
+  display: flex;
+  align-items: center;
+  height: var(--rpi-height);
+  background: var(--rpi-bg);
+  border: var(--rpi-border-width) solid var(--rpi-border-color);
+  border-radius: var(--rpi-border-radius);
+  transition:
+    border-color var(--rpi-transition),
+    box-shadow var(--rpi-transition);
+  overflow: visible;
+  position: relative;
+}
+
+.rpi-wrapper:focus-within {
+  border-color: var(--rpi-border-color-focus);
+  box-shadow: var(--rpi-shadow-focus);
+}
+
+.rpi-wrapper:hover:not(:focus-within):not(.rpi-wrapper--disabled) {
+  border-color: var(--rpi-border-color-hover);
+}
+
+.rpi-wrapper--valid {
+  border-color: var(--rpi-border-color-valid);
+}
+
+.rpi-wrapper--valid:focus-within {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.rpi-wrapper--error {
+  border-color: var(--rpi-border-color-error);
+}
+
+.rpi-wrapper--error:focus-within {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.rpi-wrapper--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--rpi-bg-hover);
+}
+
+/* ─── Vertical Divider ──────────────────────────────────────────────────────── */
+.rpi-divider {
+  width: 1px;
+  height: 60%;
+  background: var(--rpi-divider-color);
+  flex-shrink: 0;
+}
+
+/* ─── Country Dropdown ──────────────────────────────────────────────────────── */
+.rpi-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Trigger Button */
+.rpi-dropdown__trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: var(--rpi-height);
+  width: var(--rpi-trigger-width);
+  padding: 0 10px 0 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--rpi-text-dialcode);
+  font-size: var(--rpi-font-size);
+  font-family: var(--rpi-font);
+  border-radius: var(--rpi-border-radius) 0 0 var(--rpi-border-radius);
+  transition: background var(--rpi-transition);
+  outline: none;
+  user-select: none;
+}
+
+.rpi-dropdown__trigger:hover:not(:disabled) {
+  background: var(--rpi-bg-hover);
+}
+
+.rpi-dropdown__trigger--disabled {
+  cursor: not-allowed;
+}
+
+.rpi-dropdown__flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rpi-dropdown__flag img,
+.rpi-dropdown__item-flag img {
+  display: block;
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.rpi-dropdown__dialcode {
+  font-size: var(--rpi-font-size-sm);
+  font-weight: 600;
+  color: var(--rpi-text-dialcode);
+  letter-spacing: -0.01em;
+}
+
+.rpi-dropdown__arrow {
+  font-size: 0.7em;
+  color: var(--rpi-text-muted);
+  transition: transform var(--rpi-transition);
+  margin-left: auto;
+}
+
+.rpi-dropdown__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Panel */
+.rpi-dropdown__panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 9999;
+  width: var(--rpi-dropdown-width);
+  background: var(--rpi-bg-dropdown);
+  border: 1px solid var(--rpi-border-color);
+  border-radius: var(--rpi-border-radius);
+  box-shadow: var(--rpi-shadow-dropdown);
+  overflow: hidden;
+  animation: rpi-dropdown-open 0.15s ease;
+}
+
+@keyframes rpi-dropdown-open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search */
+.rpi-dropdown__search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rpi-divider-color);
+  position: sticky;
+  top: 0;
+  background: var(--rpi-bg-dropdown);
+  z-index: 1;
+}
+
+.rpi-dropdown__search-icon {
+  font-size: 0.85em;
+  flex-shrink: 0;
+}
+
+.rpi-dropdown__search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--rpi-font-size-sm);
+  color: var(--rpi-text);
+  font-family: var(--rpi-font);
+}
+
+.rpi-dropdown__search::placeholder {
+  color: var(--rpi-text-placeholder);
+}
+
+.rpi-dropdown__search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--rpi-text-muted);
+  font-size: 1.1em;
+  line-height: 1;
+  padding: 0 2px;
+  border-radius: 50%;
+  transition: color var(--rpi-transition);
+}
+
+.rpi-dropdown__search-clear:hover {
+  color: var(--rpi-text);
+}
+
+/* Country List */
+.rpi-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  max-height: var(--rpi-dropdown-max-height);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.rpi-dropdown__list::-webkit-scrollbar {
+  width: 4px;
+}
+.rpi-dropdown__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rpi-dropdown__list::-webkit-scrollbar-thumb {
+  background: var(--rpi-border-color);
+  border-radius: 2px;
+}
+
+/* Country Item */
+.rpi-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background var(--rpi-transition);
+  outline: none;
+}
+
+.rpi-dropdown__item:hover,
+.rpi-dropdown__item:focus-visible {
+  background: var(--rpi-item-hover-bg);
+}
+
+.rpi-dropdown__item--selected {
+  background: var(--rpi-item-selected-bg);
+  color: var(--rpi-item-selected-color);
+}
+
+.rpi-dropdown__item--selected .rpi-dropdown__item-name {
+  font-weight: 600;
+}
+
+.rpi-dropdown__item--focused {
+  background: var(--rpi-item-hover-bg);
+  outline: 2px solid var(--rpi-border-color-focus);
+  outline-offset: -2px;
+}
+
+.rpi-dropdown__item-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+}
+
+.rpi-dropdown__item-name {
+  flex: 1;
+  font-size: var(--rpi-font-size-sm);
+  color: var(--rpi-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rpi-dropdown__item-code {
+  font-size: var(--rpi-font-size-sm);
+  color: var(--rpi-text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.rpi-dropdown__empty {
+  padding: 20px 14px;
+  text-align: center;
+  color: var(--rpi-text-muted);
+  font-size: var(--rpi-font-size-sm);
+}
+
+/* ─── Number Input ──────────────────────────────────────────────────────────── */
+.rpi-number-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 12px;
+  font-size: var(--rpi-font-size);
+  font-family: var(--rpi-font);
+  color: var(--rpi-text);
+  letter-spacing: 0.03em;
+  border-radius: 0 var(--rpi-border-radius) var(--rpi-border-radius) 0;
+}
+
+.rpi-number-input::placeholder {
+  color: var(--rpi-text-placeholder);
+  letter-spacing: normal;
+}
+
+/* ─── Error Message ─────────────────────────────────────────────────────────── */
+.rpi-error-msg {
+  margin: 0;
+  padding: 0;
+  font-size: var(--rpi-font-size-sm);
+  color: var(--rpi-text-error);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rpi-error-msg::before {
+  content: '⚠';
+  font-size: 0.9em;
+}
+
+/* ─── Dark Mode ─────────────────────────────────────────────────────────────── */
+/* Dark mode can be enabled by adding the .rpi-dark class to a parent element.  */
+/* Alternatively, override CSS variables manually for full control:             */
+/*                                                                               */
+/* .my-dark-theme {                                                              */
+/*   --rpi-bg:           #1f2937;                                                */
+/*   --rpi-bg-dropdown:  #1f2937;                                                */
+/*   --rpi-text:         #f9fafb;                                                */
+/*   --rpi-border-color: #374151;                                                */
+/* }                                                                             */
+
+/* ─── Dark Mode Helper ──────────────────────────────────────────────────────── */
+/* Apply .rpi-dark to any parent element to enable dark mode.                   */
+/* This is NOT auto-applied — add the class manually or toggle via JS.         */
+.rpi-dark {
+  --rpi-bg:                    #1f2937;
+  --rpi-bg-hover:              #374151;
+  --rpi-bg-dropdown:           #1f2937;
+  --rpi-text:                  #f9fafb;
+  --rpi-text-placeholder:      #6b7280;
+  --rpi-text-dialcode:         #d1d5db;
+  --rpi-text-muted:            #9ca3af;
+  --rpi-text-valid:            #4ade80;
+  --rpi-text-error:            #f87171;
+  --rpi-border-color:          #374151;
+  --rpi-border-color-hover:    #4b5563;
+  --rpi-border-color-focus:    #818cf8;
+  --rpi-divider-color:         #374151;
+  --rpi-item-hover-bg:         #374151;
+  --rpi-item-selected-bg:      #312e81;
+  --rpi-item-selected-color:   #a5b4fc;
+  --rpi-shadow-focus:          0 0 0 3px rgba(129, 140, 248, 0.2);
+  --rpi-shadow-dropdown:       0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
