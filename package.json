@@ -1,0 +1,95 @@
+{
+  "name": "react-phone-number-input-pro",
+  "version": "1.0.0",
+  "description": "A zero-dependency React component for international phone number input with country selection, auto-formatting, and validation for 240+ countries.",
+  "keywords": [
+    "react",
+    "phone",
+    "phone-input",
+    "mobile",
+    "country-code",
+    "international",
+    "phone-number",
+    "dial-code",
+    "typescript",
+    "zero-runtime-dependency"
+  ],
+  "homepage": "https://github.com/saafir-bhimani/react-phone-input-pro",
+  "bugs": {
+    "url": "https://github.com/saafir-bhimani/react-phone-input-pro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saafir-bhimani/react-phone-input-pro.git"
+  },
+  "license": "MIT",
+  "author": "saafir-bhimani",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/phone-input.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "playground": "vite --config playground/vite.config.ts"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@testing-library/jest-dom": "^6.4.0",
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "^14.5.0",
+    "@types/node": "^26.0.1",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.3.0",
+    "storybook": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.3.0",
+    "vite-plugin-dts": "^3.9.0",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17"
+  }
+}
