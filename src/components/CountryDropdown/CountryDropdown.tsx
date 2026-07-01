@@ -44,6 +44,11 @@ export const CountryDropdown: React.FC<CountryDropdownProps> = ({
     item?.scrollIntoView({ block: 'nearest' });
   }, []);
 
+  const handleSelect = React.useCallback((country: Country) => {
+    onChange(country);
+    closeDropdown();
+  }, [onChange, closeDropdown]);
+
   // ─── Consolidated event listeners for UX & Accessibility ───────────────────
   useEffect(() => {
     if (!isOpen) return;
@@ -107,17 +112,12 @@ export const CountryDropdown: React.FC<CountryDropdownProps> = ({
       document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, closeDropdown, filtered, focusedIndex]);
+  }, [isOpen, closeDropdown, filtered, focusedIndex, scrollItemIntoView, handleSelect]);
 
 
 
   const openDropdown = () => {
     if (!disabled) setIsOpen(true);
-  };
-
-  const handleSelect = (country: Country) => {
-    onChange(country);
-    closeDropdown();
   };
 
   // Scroll selected item into view when dropdown opens

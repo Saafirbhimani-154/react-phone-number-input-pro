@@ -46,7 +46,6 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
     setNationalNumber,
     formatted,
     isValid,
-    error: validationError,
     fullNumber,
   } = usePhoneInput({
     defaultCountry,
