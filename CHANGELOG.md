@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Changes for the next release go here -->
 <!-- Format: ### Added / ### Fixed / ### Changed -->
 
+## [1.0.2] - 2026-07-02
+
+### Fixed
+- Fixed the GitHub repository URL in `package.json` to point to the correct repository
+
+
 ## [1.0.1] - 2026-07-01
 
 ### Fixed

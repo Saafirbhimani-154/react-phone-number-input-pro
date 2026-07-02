@@ -1,6 +1,6 @@
 {
   "name": "react-phone-number-input-pro",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A highly customizable React component for international phone number input with built-in country detection, strict validation, and zero runtime dependencies.",
   "keywords": [
     "react",
@@ -14,16 +14,16 @@
     "typescript",
     "zero-runtime-dependency"
   ],
-  "homepage": "https://github.com/saafir-bhimani/react-phone-input-pro",
+  "homepage": "https://github.com/Saafirbhimani-154/react-phone-input-pro",
   "bugs": {
-    "url": "https://github.com/saafir-bhimani/react-phone-input-pro/issues"
+    "url": "https://github.com/Saafirbhimani-154/react-phone-input-pro/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saafir-bhimani/react-phone-input-pro.git"
+    "url": "git+https://github.com/Saafirbhimani-154/react-phone-input-pro.git"
   },
   "license": "MIT",
-  "author": "saafir-bhimani",
+  "author": "saafirbhimani-154",
   "publishConfig": {
     "access": "public"
   },
